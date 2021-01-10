@@ -5,7 +5,10 @@ main_stats = {
     'Goblet of Eonothem': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'Physical DMG Bonus%', 'Geo DMG Bonus%', 'Anemo DMG Bonus%', 'Cryo DMG Bonus%', 'Pyro DMG Bonus%', 'Hydro DMG Bonus%', 'Electro DMG Bonus%'],
     'Circlet of Logos': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'CRIT Rate%', 'CRIT DMG%', 'Healing Bonus%']
 }
-sub_stats = {
+
+sub_stats = ['HP', 'ATK', 'DEF', 'HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Energy Recharge%', 'CRIT Rate%', 'CRIT DMG%']
+
+sub_stats_values = {
     '3 star': {
         'HP': [100,  115,  129,  143],
         'ATK': [7,  8,  9],
@@ -43,3 +46,45 @@ sub_stats = {
         'CRIT DMG%': [5.4,  6.2,  7,  7.8]
     }
 }
+
+#each stat can be tier 1, 2, 3, and the weights correspond to their importance. Tier 3 is best.
+main_weight_tiers = [0, 0.5, 1]
+sub_weight_tiers = [0, 0.2, 0.3]
+
+#how much main and sub are weighted
+main_sub_weight = [0.5, 0.5]
+
+#weights correspond to the index of the weight tiers
+dps_weights_main = {
+    'Flower of Life': [2],
+    'Plume of Death': [2],
+    'Sands of Eon': [0, 0, 2, 0, 0],
+    'Goblet of Eonothem': [0, 0, 1, 0, 2, 2, 2, 2, 2, 2, 2],
+    'Circlet of Logos': [0, 0, 1, 0, 2, 2, 0]
+}
+
+dps_weights_sub = [0, 1, 0, 0, 1, 0, 0, 0, 2, 2]
+
+#this should return the weights of main and sub assuming best stats are perfect rolls
+def calculate_stat_weights(piece, main, sub, main_weights, sub_weights, main_weight_tiers, sub_weight_tiers):
+    stat_sub_weights = []
+    stat_weights = []
+
+    #finds the index of main stat then assigns corresponding weight
+    mainstat_index = main_stats[piece].index(main)
+    mainstat_weight_index = main_weights[piece][mainstat_index]
+    stat_weights.append(main_weight_tiers[mainstat_weight_index])
+
+
+    #iterate through sub, finds index of the sub in sub_stats, then get corresponding weight
+    for subKey, substat in sub.items():
+        substat_index = sub_stats.index(subKey)
+        substat_weight_index = sub_weights[substat_index]
+        stat_sub_weights.append(sub_weight_tiers[substat_weight_index])
+    
+    stat_weights.append(stat_sub_weights)
+
+    return stat_weights
+        
+
+
