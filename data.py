@@ -1,13 +1,13 @@
+#possible main stats for each piece
 main_stats = {
     'Flower of Life': ['HP'],
     'Plume of Death': ['ATK'],
-    'Sands of Eon': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'Energy Recharge%'],
-    'Goblet of Eonothem': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'Physical DMG Bonus%', 'Geo DMG Bonus%', 'Anemo DMG Bonus%', 'Cryo DMG Bonus%', 'Pyro DMG Bonus%', 'Hydro DMG Bonus%', 'Electro DMG Bonus%'],
-    'Circlet of Logos': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'CRIT Rate%', 'CRIT DMG%', 'Healing Bonus%']
+    'Sands of Eon': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'Energy Recharge'],
+    'Goblet of Eonothem': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'Physical DMG Bonus', 'Geo DMG Bonus', 'Anemo DMG Bonus', 'Cryo DMG Bonus', 'Pyro DMG Bonus', 'Hydro DMG Bonus', 'Electro DMG Bonus'],
+    'Circlet of Logos': ['HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'CRIT Rate', 'CRIT DMG', 'Healing Bonus']
 }
 
-sub_stats = ['HP', 'ATK', 'DEF', 'HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Energy Recharge%', 'CRIT Rate%', 'CRIT DMG%']
-
+#possible substat rolls
 sub_stats_values = {
     '3 star': {
         'HP': [100,  115,  129,  143],
@@ -17,9 +17,9 @@ sub_stats_values = {
         'ATK%': [2.5,  2.8,  3.2,  3.5],
         'DEF%': [3.1,  3.5,  3.9,  4.4],
         'Elemental Mastery': [10,  11,  13,  14],
-        'Energy Recharge%': [2.7,  3.1,  3.5,  3.9],
-        'CRIT Rate%': [1.6,  1.9,  2.1,  2.3],
-        'CRIT DMG%': [3.3,  3.7,  4.2,  4.7]
+        'Energy Recharge': [2.7,  3.1,  3.5,  3.9],
+        'CRIT Rate': [1.6,  1.9,  2.1,  2.3],
+        'CRIT DMG': [3.3,  3.7,  4.2,  4.7]
     },
     '4 star': {
         'HP': [167,  191,  215,  239],
@@ -29,9 +29,9 @@ sub_stats_values = {
         'ATK%': [3.3,  3.7,  4.2,  4.7],
         'DEF%': [4.1,  4.7,  5.3,  5.8],
         'Elemental Mastery': [13,  15,  17,  19],
-        'Energy Recharge%': [3.6,  4.1,  4.7,  5.2],
-        'CRIT Rate%': [2.2,  2.5,  2.8,  3.1],
-        'CRIT DMG%': [4.4,  5,  5.6,  6.2]
+        'Energy Recharge': [3.6,  4.1,  4.7,  5.2],
+        'CRIT Rate': [2.2,  2.5,  2.8,  3.1],
+        'CRIT DMG': [4.4,  5,  5.6,  6.2]
     },
     '5 star': {
         'HP': [209,  239,  269,  299],
@@ -41,8 +41,14 @@ sub_stats_values = {
         'ATK%': [4.1,  4.7,  5.3,  5.8],
         'DEF%': [5.1,  5.8,  6.6,  7.3],
         'Elemental Mastery': [16,  19,  21,  23],
-        'Energy Recharge%': [4.5,  5.2,  5.8,  6.5],
-        'CRIT Rate%': [2.7,  3.1,  3.5,  3.9],
-        'CRIT DMG%': [5.4,  6.2,  7,  7.8]
+        'Energy Recharge': [4.5,  5.2,  5.8,  6.5],
+        'CRIT Rate': [2.7,  3.1,  3.5,  3.9],
+        'CRIT DMG': [5.4,  6.2,  7,  7.8]
     }
 }
+
+#Word bank of artifact pieces, elements, mainstats, substats
+artifact_pieces = ['Flower of Life', 'Plume of Death', 'Sands of Eon', 'Goblet of Eonothem', 'Circlet of Logos']
+elements = ['Physical', 'Geo', 'Anemo', 'Cryo', 'Hydro', 'Pyro', 'Electro']
+mainstat_names = ['HP', 'ATK', 'HP%', 'DEF%', 'ATK%', 'Elementary Mastery', 'Physical DMG Bonus', 'Geo DMG Bonus', 'Anemo DMG Bonus', 'Cryo DMG Bonus', 'Pyro DMG Bonus', 'Hydro DMG Bonus', 'Electro DMG Bonus' 'Energy Recharge', 'CRIT Rate', 'CRIT DMG']
+substat_names = ['HP', 'ATK', 'DEF', 'HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Energy Recharge', 'CRIT Rate', 'CRIT DMG']
